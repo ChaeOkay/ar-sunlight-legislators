@@ -4,7 +4,7 @@ class SunlightLegislatorsImporter
   def self.import(filename)
     csv = CSV.new(File.open(filename), :headers => true)
     csv.each do |row|
-      Politician.new(row.to_hash)
+      Politician.create(row.to_hash)
     end
   end
 end
