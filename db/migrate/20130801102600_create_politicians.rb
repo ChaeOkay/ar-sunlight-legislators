@@ -4,9 +4,9 @@ class CreatePoliticians < ActiveRecord::Migration
   def change
     create_table :politicians do |t|
       t.string :title
-      t.string :first_name
-      t.string :middle_name
-      t.string :last_name
+      t.string :firstname
+      t.string :middlename
+      t.string :lastname
       t.string :name_suffix
       t.string :nickname
       t.string :party
@@ -25,7 +25,7 @@ class CreatePoliticians < ActiveRecord::Migration
       t.string :govtrack_id
       t.string :crp_id
       t.string :twitter_id
-      t.string :congresspedia_id
+      t.string :congresspedia_url
       t.string :youtube_url
       t.string :facebook_id
       t.string :official_rss

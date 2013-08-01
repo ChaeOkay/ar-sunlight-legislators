@@ -4,13 +4,17 @@ class SunlightLegislatorsImporter
   def self.import(filename)
     csv = CSV.new(File.open(filename), :headers => true)
     csv.each do |row|
+      # Politician.new(row.to_hash)
       row.each do |field, value|
-        puts "Row 1: FIELD: #{field} : VALUE: #{value}"
-        # TODO: begin
-        raise NotImplementedError, "TODO: figure out what to do with this row and do it!"
-        # TODO: end
+        p field
       end
+        # TODO: begin
+        # raise NotImplementedError, "TODO: Create a Politician!"
+        # TODO: end
+      #end
+
     end
+
   end
 end
 

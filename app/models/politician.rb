@@ -3,11 +3,8 @@
 # website formats for various fields
 # twitter, facebook
 
-def Politician
-  def initialize(args)
-  end
+#active record base => has initialize and save, etc.
 
-  def save
-    #run validations
-  end
+class Politician < ActiveRecord::Base
+
 end
