@@ -5,25 +5,26 @@ require_relative 'models/politician.rb'
 
 #p Politician.where(:state => 'CA')
 
-ca_sen_params = { :state => 'CA', 
-                  :title => 'Sen'}
+# def create_state_params(state)
+#   ca_sen_params = { :state => 'CA', 
+#                     :title => 'Sen'}
 
-ca_rep_params = { :state => 'CA', 
-                  :title => 'Rep'}
-def query(params)
-  Politician.where(params).each do |object|
+#   ca_rep_params = { :state => 'CA', 
+#                     :title => 'Rep'}
+def query(state, title)
+  Politician.where(:state => state, :title => title).each do |object|
     puts "\t#{object[:firstname]} #{object[:lastname]} (#{object[:party]})"
   end
 end
 
-def display(sen_params, rep_params)
+def display(args)
   puts "Senators:"
-  query(sen_params)
+  query(args[:state], args[:first_title])
   puts "Representatives:"
-  query(rep_params)
+  query(args[:state], args[:second_title])
 end
 
-display(ca_sen_params, ca_rep_params)
+display(:state => 'CA', :first_title => 'Sen', :second_title => 'Rep')
 
 # ca_senators = Politician.where(ca_sen_params)
 # ca_representatives = Politician.where(ca_rep_params)
