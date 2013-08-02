@@ -33,5 +33,13 @@ end
 senator_args = {:congress => 'Senators', :title => 'Sen', :gender => 'M'}
 rep_args = {:congress => 'Representatives', :title => 'Rep', :gender => 'M'}
 
-display_count_analysis(senator_args)
-display_count_analysis(rep_args)
+# display_count_analysis(senator_args)
+# display_count_analysis(rep_args)
+
+# validations prevent congresspeople who are not actively in office from 
+# being saved to the database. No deletion is required. IF we did:
+# p Politician.where(:in_office => 0).each { |record| record.destroy }
+# puts
+# puts
+# puts "After destruction:"
+# p Politician.where(:in_office => 0)
