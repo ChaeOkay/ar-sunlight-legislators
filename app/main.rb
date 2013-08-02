@@ -21,29 +21,17 @@ def count(args)
   Politician.where(args).count
 end
 
-arg1 = {:title => 'Sen'}
-arg2 = {:title => 'Sen', :gender => 'M'}
-arg3 = {:title => 'Rep'}
-arg4 = {:title => 'Rep', :gender => 'M'}
+def display_count_analysis(args)
+  male_count = count(:title => args[:title], :gender => args[:gender])
+  male_percentage = ((male_count.to_f)/count(:title => args[:title]).to_i)*100
 
-p count(arg1)
-p count(arg2)
-p count(arg3)
-p count(arg4)
-
-# display_for_state(:state => 'CA', :first_title => 'Sen', :second_title => 'Rep')
-
-#2.
-# gender, title, in_office
-# come up with sequel query
-# => a = query total number of senators/representatives
-# => b = query number of male senators ----> count..
-# =>    AND in_office be = 1 *
-# divide 'b' by 'a' to find percentage, multiply 100. 
-# format for display. 
-
-# select title, count(title)  from politicians where title like '%Sen%'
-# group by title order by count(title) desc;
+  print "Male #{args[:congress]}: #{male_count.to_i}\s"
+  puts "(#{male_percentage.to_i})%"
+end
 
 
-# create a method to count the number of senators or representatives (arg is title)
+senator_args = {:congress => 'Senators', :title => 'Sen', :gender => 'M'}
+rep_args = {:congress => 'Representatives', :title => 'Rep', :gender => 'M'}
+
+display_count_analysis(senator_args)
+display_count_analysis(rep_args)
