@@ -1,6 +1,10 @@
 ActiveRecord Sunlight Legislators
 =================================
 
+Learning ActiveRecord
+Project by Ishwar and Chae
+
+__________________________________
 To get started:
 
 1. Fork this repository.
